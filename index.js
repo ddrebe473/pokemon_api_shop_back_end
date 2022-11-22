@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('hello pokemon');
+    res.send(`data avaliable at these end points: http://localhost:8000/api/pokemon/types, http://localhost:8000/api/pokemon/types/fire`);
 });
 
 const pokemonRoutes = require('./routes/pokemon');
@@ -23,3 +23,4 @@ app.listen(port, () => {
     console.log(`listening on ${port}`);
     connectDb(process.env.MONGO_URI);
 });
+

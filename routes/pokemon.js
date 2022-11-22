@@ -6,9 +6,17 @@ const {
     getCart,
     addToCart,
     clearCart,
-} = require('../controllers/pokemonController.js');
+} = require('../controllers/cartController.js');
+
+const{ 
+    getTypes,
+    getPokeByType
+} = require('../controllers/pokemonController')
 
 router.route('/cart').get(getCart).post(addToCart).delete(clearCart);
 router.route('/cart/:id').delete(removeFromCart)
+
+router.route('/types').get(getTypes)
+router.route('/types/:type').get(getPokeByType)
 
 module.exports = router;
